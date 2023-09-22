@@ -7,6 +7,115 @@
     <link href="styles/style.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="top"></div>
+
+    <div class="top">
+        <div style="font-size: 12px;color: aliceblue;margin-left: 70%">English Version</div>
+    </div>
+
+     <div class="top2">
+         <div class="w1" style="margin-left: 28%">
+             <img src="static/logo_nav.png">
+         </div>
+         <div class="w1" style="margin-left: 24px;margin-top: 18px">社团首页</div>
+         <div class="w1" style="margin-left: 24px;margin-top: 18px">常见问题</div>
+         <div class="w1" style="margin-left: 24px;margin-top: 18px">网络报修</div>
+         <div class="w1" style="margin-left: 650px;margin-top: 15px">
+             <img src="static/login.png" >
+         </div>
+         <div class="w1" style="margin-left: 10px;margin-top: 18px">登录</div>
+     </div>
+
+
+    <div class="carousel">
+        <div class="container">
+            <img src="static/1lbt.jpg"/>
+            <img src="static/2lbt.jpg"/>
+            <img src="static/2lbt.jpg"/>
+        </div>
+        <div class="shift">
+            <div class="btn left" onclick="leftShift()">&lt;</div>
+            <div class="btn right" onclick="rightShift()">&gt;</div>
+        </div>
+        <div class="bottom"></div>
+    </div>
+<script>
+    // 显示的图片下标
+    let index = 0
+
+    // 图片的数量
+    let imageCount = 3
+
+    const bottom = document.querySelector(".carousel .bottom")
+    for (let i = 0; i < imageCount; i++) {
+        // DOM 操作
+        // 知识点：https://3yya.com/courseware/chapter/162
+
+        // 创建底部按钮
+        const indicator = document.createElement("div")
+        indicator.classList.add("indicator")
+        indicator.onclick = () => setIndex(i)
+
+        bottom.append(indicator)
+    }
+
+    function createAuto() {
+        return setInterval(() => {
+            index++
+            refresh()
+        }, 3000)
+    }
+
+    // 自动滚动
+    let autoTimer = createAuto()
+
+    function refresh() {
+        if (index < 0) {
+            // 下标小于 0 时
+            // 设置最右的图片
+            index = imageCount - 1
+        } else if (index >= imageCount) {
+            // 下标超过上限时
+            // 设置最左的图片
+            index = 0
+        }
+
+        // 获取轮播框元素
+        let carousel = document.querySelector(".carousel")
+
+        //获取轮播框的宽度
+        let width = getComputedStyle(carousel).width
+        width = Number(width.slice(0, -2))
+
+        carousel.querySelector(".container").style.left =
+            index * width * -1 + "px"
+    }
+
+    let refreshWrapper = (func) => {
+        // refresh 装饰器
+        return function (...args) {
+            let result = func(...args)
+            refresh()
+
+            // 重置自动滚动
+            clearInterval(autoTimer)
+            autoTimer = createAuto()
+            return result
+        }
+    }
+
+    let leftShift = refreshWrapper(() => {
+        index--
+    })
+    let rightShift = refreshWrapper(() => {
+        index++
+    })
+
+    let setIndex = refreshWrapper((idx) => {
+        index = idx
+    })
+
+    refresh()
+</script>
+
 </body> 
 </html>
