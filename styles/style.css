@@ -30,56 +30,35 @@ height: 20px;
 .carousel .container {
 	width: 100%;
 	height: 100%;
-
 	position: relative;
 	left: 0;
-
 	display: flex;
-
-	/* 过渡动画 1s */
 	transition: all 1s;
 }
 
-.carousel .container {
-	width: 100%;
-	height: 100%;
-
-	flex-shrink: 0;
-}
-
 .carousel .container img {
+	position: relative;
 	width: 100%;
 	height: 100%;
-
 	object-fit: cover;
 }
 
 .carousel .shift .btn {
-	/* 绝对定位且垂直居中 */
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	margin: auto 0;
-
 	background-color: teal;
 	color: white;
-
 	width: 50px;
 	height: 50px;
 	border-radius: 8px;
-
 	font-size: 40px;
 	font-weight: bold;
-
-	/* 字符水平垂直居中 */
 	line-height: 50px;
 	text-align: center;
-
 	cursor: pointer;
-
 	user-select: none;
-
-	/* 不透明度 0.5 */
 	opacity: 0.5;
 }
 .carousel .shift .left {
@@ -91,20 +70,12 @@ height: 20px;
 
 .carousel .bottom {
 	position: absolute;
-
 	bottom: 20px;
-
-	/* 绝对定位水平居中 */
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-
-	/* 宽度等同于内容宽度 */
-	/* 知识点：https://3yya.com/courseware/chapter/79#关键字属性 */
 	width: max-content;
-
 	display: flex;
-	/* 指示器间距 */
 	gap: 10px;
 }
 
@@ -123,4 +94,102 @@ height: 20px;
 }
 .carousel:hover .shift .btn {
 	opacity: 1;
+}
+.fourwz{
+	font-size: 30px;
+	font-family: "Andale Mono";
+	color: white;
+	margin-left: 700px;
+	width: 1160px;
+	height: 160px;
+	cursor: pointer;
+}
+.one{
+	float: left;
+	width: 580px;
+	height: 80px;
+	background-color: #306ea3;
+	transition: background-color 0.3s ease;
+}
+.two{
+	margin-left: 580px;
+	width: 580px;
+	height: 80px;
+	background-color: #d0514d;
+	transition: background-color 0.3s ease;
+}
+.three{
+	float: left;
+	width: 580px;
+	 height: 80px;
+	 background-color: #e29220;
+	transition: background-color 0.3s ease;
+}
+.four{
+	margin-left: 580px;
+	width: 580px;
+	  height: 80px;
+	  background-color: #776ee0;
+	transition: background-color 0.3s ease;
+}
+
+.modal {
+	display: none; /* 默认情况下隐藏弹出框 */
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	width: 300px;
+	height: 100px;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+}
+
+.modal img {
+	display: block;
+	margin: auto;
+	max-width: 80%;
+	max-height: 90%;
+}
+
+.close {
+	color: #fff;
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	font-size: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.xiafangwz{
+	width: 1160px;
+	height: 500px;
+	margin-left: 700px;
+	background-color: #efefef;
+}
+.jianjie{
+	width: 1130px;
+	position: absolute;
+	margin-top: 20px;
+	margin-left: 10px;
+	font-family: "Apple Chancery";
+	font-size: 15px;
+}
+
+.xiamiankt{
+	width: 100%;
+	height: 133px;
+	background-color: #4186c2;
+}
+.xiamianzt{
+	width: 100%;
+	height: 50px;
+	background-color: #2f6c9f;
+}
+.zuihou{
+	position: absolute;
+	color: white;
+	font-size: 15px;
+	margin-top: 15px;
+	margin-left: 1165px
 }

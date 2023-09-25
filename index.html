@@ -38,84 +38,59 @@
         </div>
         <div class="bottom"></div>
     </div>
-<script>
-    // 显示的图片下标
-    let index = 0
+<script src="js/1.js"></script>
 
-    // 图片的数量
-    let imageCount = 3
+    <div class="fourwz">
+        <div id="one" class="one">
+            <div style="margin-top: 20px">常见问题｜FAQ
+                <img src="static/1wz.png" style="float:left;margin-top: -5px;margin-left: 70px">
+            </div>
+        </div>
+        <div id="two" class="two">
+            <div style=" position:absolute ;margin-top: 20px">网络保修｜SUPPORT
+                <img src="static/2wz.png" style="float:left;margin-top: -15px;margin-left: 70px">
+            </div>
+        </div>
+        <div id="three" class="three">
+            <div style="margin-top: 20px">关注我们｜FOLLOW US
+                <img src="static/3wz.png" style="float:left;margin-top: -10px;margin-left: 70px">
+            </div>
+        </div>
+        <div id="four" class="four">
+            <div style=" position:absolute ;margin-top: 20px">加入我们｜JOIN US
+                <img src="static/4wz.png" style="float:left;margin-top: -10px;margin-left: 70px">
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img src="/static/1lbt.jpg" alt="图片">
+    </div>
+<script src="js/2.js"></script>
 
-    const bottom = document.querySelector(".carousel .bottom")
-    for (let i = 0; i < imageCount; i++) {
-        // DOM 操作
-        // 知识点：https://3yya.com/courseware/chapter/162
+    <div class="xiafangwz">
+        <div class="jianjie">
+            <div style="font-size: 25px">读后感</div>
+            <hr>
+            <p>
+            <p>暑假里，我看上了四大名著之中的《水浒传》，我还读过《西游记》。</p>
+            <p>《西游记》告诉我要知难而进让我深受启发，而《水浒传》的忠义之魂另我深深地吸引了。
+                <p>《水浒传》记叙了以宋江为首的一百零八好汉从聚义梁山泊，到受朝廷招安，再到大破辽兵，最后剿灭叛党。宋江并不能算是一个真正的英雄。他既没有武松打虎的英勇，也没有赫赫的战功，他的名声只是起源于他有一个政治家所具备的谋略。宋江将他政治家的天赋发挥得淋漓尽致，使108位好汉团结一致，攻下祝家庄，三打高太尉。可是，虽然他有如此之高的政治谋略，但他费尽心机只为名正言顺得到朝廷的承认，而不是一辈子在梁山当强盗。
+                <p>于是头昏眼热的他选择了招安，他完全忽略了朝廷早就把他们视为眼中钉肉中刺的感觉；完全忽略了他的兄弟好汉们的脾气；完全忽略了梁山好汉们的心思和意愿。于是政治方向的错误导致了梁山好汉失败的悲剧，不知道一意孤行的他临死前是否觉得后悔呢？鲁智深 他是忠与义的化身。金氏父女正是由于素不相识的鲁提辖而逃出镇关西的魔掌。林冲正是由于萍水相逢的花和尚才在野猪林幸免遇难。
+                <p>这一切，都是鲁智深的忠义表现。忠与义在《水浒》中，是作者所竭力唱颂的，更是贯穿这一百二十回章节的无形骨架。在一百零八个好汉中，每一个都是一个不同的哲理人生，他们昭示我们无限思考。这是古人留给我们的精神财富。
+                <p>它永远都在闪耀着精神世界的光辉。它也永远给我带来了关于思想与情感的启迪和力量。
+        </div>
+    </div>
 
-        // 创建底部按钮
-        const indicator = document.createElement("div")
-        indicator.classList.add("indicator")
-        indicator.onclick = () => setIndex(i)
-
-        bottom.append(indicator)
-    }
-
-    function createAuto() {
-        return setInterval(() => {
-            index++
-            refresh()
-        }, 3000)
-    }
-
-    // 自动滚动
-    let autoTimer = createAuto()
-
-    function refresh() {
-        if (index < 0) {
-            // 下标小于 0 时
-            // 设置最右的图片
-            index = imageCount - 1
-        } else if (index >= imageCount) {
-            // 下标超过上限时
-            // 设置最左的图片
-            index = 0
-        }
-
-        // 获取轮播框元素
-        let carousel = document.querySelector(".carousel")
-
-        //获取轮播框的宽度
-        let width = getComputedStyle(carousel).width
-        width = Number(width.slice(0, -2))
-
-        carousel.querySelector(".container").style.left =
-            index * width * -1 + "px"
-    }
-
-    let refreshWrapper = (func) => {
-        // refresh 装饰器
-        return function (...args) {
-            let result = func(...args)
-            refresh()
-
-            // 重置自动滚动
-            clearInterval(autoTimer)
-            autoTimer = createAuto()
-            return result
-        }
-    }
-
-    let leftShift = refreshWrapper(() => {
-        index--
-    })
-    let rightShift = refreshWrapper(() => {
-        index++
-    })
-
-    let setIndex = refreshWrapper((idx) => {
-        index = idx
-    })
-
-    refresh()
-</script>
+        <div class="xiamiankt">
+            <img src="static/qrcode.jpg" style="width: 80px;height: 80px;margin-top: 25px;margin-left: 1250px">
+        </div>
+        <div class="xiamianzt">
+            <div class="zuihou">
+                © XJTU ANA
+                . All rights reserved.
+            </div>
+        </div>
 
 </body> 
 </html>
